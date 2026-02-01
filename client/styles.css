@@ -1,0 +1,31 @@
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css');
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fade 0.4s;
+}
+
+body.no-fade {
+    animation: none;
+    opacity: 1;
+}
+
+.hero-wrapper {
+    max-width: 80%;        
+    margin: 0 auto;            
+    padding: 0 10%;          
+}
+
+
+.background-color-blue {
+    background-color: #457382 !important;
+}
+

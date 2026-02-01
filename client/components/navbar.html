@@ -1,0 +1,91 @@
+<head>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .navbar-nav {
+            display: flex;
+            align-items: stretch;
+            height: 100%;
+        }
+
+        .navbar-nav .nav-item {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .nav-link {
+            color: white !important;
+        }
+
+        .navbar .nav-link.boxed:hover {
+            background-color: rgba(217, 203, 203, 0.3);
+            opacity: 0.8;
+        }
+
+        .navbar .nav-link.boxed {
+            display: flex;
+            height: 100%;
+        }
+
+        .bg-blue-custom {
+            background-color: rgb(82, 82, 216);
+        }
+
+        body {
+            padding-top: 56px;
+            /* Adjust based on navbar height */
+        }
+
+        .stick_nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+    </style>
+</head>
+
+<body class="no-fade">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary stick_nav">
+        <a class="navbar-brand" href="#"></a>
+        <!-- note its "data-bs-..." NOt "data-...", due to api changes of bootstrap! -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav fw-bold">
+                <li class="nav- px-4 active">
+                    <!-- Replace the BELOW WITH AN IMAGE!!!-->
+                    <a href="Home.html">
+                        <img src="images/logo/Singtic_logo.png" onerror="this.onerror=null; this.src='../images/logo/Singtic_logo.png'" width="100px" height="100%" alt="Singtic">
+                    </a>
+                </li>
+                <li class="nav-item px-1">
+                    <a class="nav-link boxed" href="Home.html">Attraction</a>
+                </li>
+                <li class="nav-item px-1">
+                    <a class="nav-link boxed" href="Home.html">Promotion</a>
+                </li>
+                <li class="nav-item px-1">
+                    <a class="nav-link boxed" href="Home.html">Explore</a>
+                </li>
+                <li class="nav-item px-1">
+                    <a class="nav-link boxed" href="Home.html">Culture Pass</a>
+                </li>
+                <li class="nav-item px-1">
+                    <a class="nav-link boxed" href="Home.html">Create Event</a>
+                </li>
+            </ul>
+
+            <div class="d-flex justify-content-end ms-auto me-3">
+                <a href="Home.html">
+                    <button class="btn btn-primary rounded-3" type="submit">login</button>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+</body>

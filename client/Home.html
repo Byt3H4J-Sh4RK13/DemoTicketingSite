@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <title>Home - Singtics</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+
+    <div id="navbar-container"></div>
+    <div class="mt-4">
+        <div class="container-fluid p-0" style="height: 70vh; padding-top: 0vh;">
+            <div class="hero-wrapper p-0 d-block w-100 h-100 object-fit-cover">
+                <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel"
+                    data-bs-interval="3000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner h-100 rounded-5">
+                        <div class="carousel-item active h-100">
+                            <!-- ADD the link -->
+                            <a href="#" onclick="GoToProduct(7)">
+                                <img src="images/carousel/premium.jpg" class="d-block w-100 h-100 object-fit-cover"
+                                    style="object-position: top;" alt="MildMellow's!">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Midnight Pyramids</h5>
+                                <p>A nocturnal exploration of mystery and time</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item h-100">
+                            <!-- Test image here -->
+                            <a href="#" onclick="GoToProduct(6)">
+                                <img src="images/carousel/premium2.jpg" class="d-block w-100 h-100 object-fit-cover"
+                                    style="object-position: top;" alt="...">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Zinglebee</h5>
+                                <p>A black-tie gala</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item h-100">
+                            <a href="#" onclick="GoToProduct(2)">
+                                <img src="images/carousel/premium3.jpg" class="d-block w-100 h-100 object-fit-cover"
+                                    style="object-position: top;" alt="We Inherit The Stars">
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>We Inherit The Stars</h5>
+                                <p>Humanity's second home</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <div class="container-fluid background-color-blue text-white">
+            <div class="container pt-2 pb-2">
+                <h3 class="text-center pt-2">Featured Shows</h3>
+            </div>
+
+            <div class="d-flex justify-content-center gap-5 flex-wrap pt-3">
+
+                <a href="#" onclick="GoToProduct(1)">
+                    <div class="card bg-transparent text-white border-0" style="width: 24rem;">
+                        <img class="card-img-top rounded-2" src="images/Featured_Shows/Marsh_Will_Conquer.jpg"
+                            alt="Image Cap">
+                        <div class="card-body p-1">
+                            <h6 class="card-text">Experience the Marshmellows</h6>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" onclick="GoToProduct(2)">
+                    <div class="card bg-transparent text-white border-0" style="width: 24rem;">
+                        <img class="card-img-top rounded-2" src="images/Featured_Shows/Inherit_The_Stars.png"
+                            alt="Image Cap">
+                        <div class="card-body p-1">
+                            <h6 class="card-text">Drifting among the cosmos, humanity explores a star</h6>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" onclick="GoToProduct(3)">
+                    <div class="card bg-transparent text-white border-0" style="width: 24rem;">
+                        <img class="card-img-top rounded-2" src="images/Featured_Shows/Brian_The_Comedian.jpg"
+                            alt="Image Cap">
+                        <div class="card-body p-1">
+                            <h6 class="card-text">Brian The Comedian</h6>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" onclick="GoToProduct(4)">
+                    <div class="card bg-transparent text-white border-0" style="width: 24rem;">
+                        <img class="card-img-top rounded-2" src="images/Featured_Shows/Lights_Out.jpg" alt="Image Cap">
+                        <div class="card-body p-1">
+                            <h6 class="card-text">Life at Night!</h6>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" onclick="GoToProduct(5)">
+                    <div class="card bg-transparent text-white border-0" style="width: 24rem;">
+                        <img class="card-img-top rounded-2" src="images/Featured_Shows/The_Bispo.jpg" alt="Image Cap">
+                        <div class="card-body p-1">
+                            <h6 class="card-text">The bispo -- An expansion of time and space</h6>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" onclick="GoToProduct(6)">
+                    <div class="card bg-transparent text-white border-0" style="width: 24rem;">
+                        <img class="card-img-top rounded-2" src="images/Featured_Shows/Zinglebee.jpg" alt="Image Cap">
+                        <div class="card-body p-1">
+                            <h6 class="card-text">Zinglebee</h6>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" onclick="GoToProduct(7)">
+                    <div class="card bg-transparent text-white border-0" style="width: 24rem;">
+                        <img class="card-img-top rounded-2" src="images/Featured_Shows/Midnight_Pyramids.jpg"
+                            alt="Image Cap">
+                        <div class="card-body p-1">
+                            <h6 class="card-text">Midnight Pyramids</h6>
+                        </div>
+                    </div>
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-blue-custom pt-5">
+
+    </div>
+    <script src="./scripts/load-navbar.js"></script>
+    <script>
+        function GoToProduct(id) {
+            window.location.href = `./desc.html?id=${id}`;
+            return false;
+        }
+    </script>
+</body>
+
+</html>

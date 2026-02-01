@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Book a seat!</title>
+
+    <style>
+        .Area {
+            cursor: pointer;
+        }
+
+        .Area:hover {
+            opacity: 0.7;
+        }
+
+        #Booker_svg svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+            /* Removes extra space */
+        }
+
+        .Area.Selected {
+            /* FIX THIS */
+            opacity: 0.7 !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+
+    <div class="mt-5">
+        <div class="container-lg">
+            <div class="card text-white bg-primary mb-3 w-100 border-2">
+                <div class="card-header text-center fw-bold">Step 1: Seat Selection</div>
+                <div class="card-body bg-white text-black">
+                    <h5 class="card-title">Click on a desired seating area</h5>
+                    <div id="Booker_svg"></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div id="AreaDisplay" class="alert alert-info">
+                                No seat selected yet
+                            </div>
+                            <script>
+                                fetch("assets/Booking_Seats.svg")
+                                    .then(res => res.text())
+                                    .then(svg => {
+                                        document.getElementById("Booker_svg").innerHTML = svg;
+
+                                        let Selected = null;
+                                        const nextLink = document.getElementById("nextButtonLink");
+                                        
+                                        document.querySelectorAll(".Area").forEach(Area => {
+                                            Area.addEventListener("click", () => {
+                                                const AreaSelected = Area.dataset.areaselected;
+                                                if (Selected) {
+                                                    Selected.classList.remove("Selected");
+                                                }
+                                                Area.classList.add("Selected");
+                                                Selected = Area;
+                                                document.getElementById("AreaDisplay").innerHTML = `
+                                                    <strong>Selected Seat:</strong> ${AreaSelected}    
+                                                `;
+                                                document.getElementById("AreaDisplay").className = "alert alert-success";
+                                                
+                                                nextLink.classList.remove("disabled");
+                                                nextLink.style.pointerEvents = "auto";
+                                                
+                                                localStorage.setItem("selectedSeat", AreaSelected);
+                                                                        });
+                                                                    });
+                                                                });
+                            </script>
+                        </div>
+                        <div>
+                            <a href="Form.html" id="nextButtonLink" class="btn btn-primary disabled"
+                                aria-disabled="true" style="pointer-events: none;">
+                                Next
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>

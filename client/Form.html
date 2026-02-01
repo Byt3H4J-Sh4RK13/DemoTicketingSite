@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Fill in the form!</title>
+</head>
+
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+
+    <div class="mt-5">
+        <div class="container-lg">
+            <h5>Checkout</h5>
+            <form>
+                <div class="row pt-4">
+                    <div class="col">
+                        <input type="text" class="form-control" id="FirstNameInput" placeholder="First name" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="LastNameInput" placeholder="Last name" required>
+                    </div>
+                </div>
+
+                <div class="input-group pt-4">
+                    <span class="input-group-text">+65</span>
+                    <input type="tel" class="form-control" id="InputNumber" placeholder="Enter Number" name="phone"
+                        required>
+                </div>
+
+                <div class="form-group pt-4">
+                    <label for="InputEmail">Email</label>
+                    <input type="email" class="form-control" id="InputEmail" placeholder="Enter Email" required>
+                </div>
+
+                <div class="form-group pt-4 pb-4">
+                    <label for="InputConfirmEmail">*Confirm Email Address</label>
+                    <input type="email" class="form-control" id="InputConfirmEmail" placeholder="Confirm Email Address"
+                        required>
+                </div>
+
+                <button type="submit" id="SubmitButton" class="btn btn-primary" disabled>Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const inputs = form.querySelectorAll('input[required]');
+        const SubmitButton = document.getElementById('SubmitButton');
+
+        function EmailConfirmation() {
+            const email = document.getElementById("InputEmail").value;
+            const confirmemail = document.getElementById("InputConfirmEmail").value;
+            if (email == confirmemail) return true;
+            return false;
+        }
+
+        function CheckAllInputs() {
+            let allFilled = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+
+            return allFilled;
+        }
+
+        // Actually this can be shorter lol
+        function validateForm() {
+            if (EmailConfirmation() == true && CheckAllInputs() == true) {
+                SubmitButton.disabled = false;
+            } else {
+                SubmitButton.disabled = true;
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            validateForm();
+
+            const allInputs = form.querySelectorAll('input');
+            allInputs.forEach(input => {
+                input.addEventListener('input', validateForm);
+                input.addEventListener('change', validateForm);
+            });
+        });
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const formData = {
+                firstName: document.getElementById("FirstNameInput").value.trim(),
+                lastName: document.getElementById("LastNameInput").value.trim(),
+                phone: document.getElementById("InputNumber").value.trim(),
+                email: document.getElementById("InputEmail").value.trim(),
+                confirmEmail: document.getElementById("InputConfirmEmail").value.trim()
+            };
+            const data = formData;
+            try {
+                const response = await fetch('/api/submit-userinfo', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    window.location.href = './Processing.html';
+                } else {
+                    window.location.href = './Failed.html'
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+
+        });
+    </script>
+
+</body>
