@@ -6,11 +6,11 @@ exports.getAllProducts = (req, res) => {
     
     // ? buggy
 
-    db.all(sql, [], (err, rows) => {
+    db.all(sql, [], (err, data) => {
         if (err) {
             res.status(500).json({ error: err.message });
         } else {
-            res.json(rows);  
+            res.json(data);  
         }
     });
 };
